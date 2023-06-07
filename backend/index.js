@@ -9,6 +9,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 
 // routes module
 app.use('/api/v1/products', require('./routes/product.route'));
+app.use('/api/v1/transactions', require('./routes/transaction.route'));
 
 // setting
 app.set('port', process.env.PORT || 3000);
