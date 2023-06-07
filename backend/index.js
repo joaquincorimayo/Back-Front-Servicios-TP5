@@ -1,0 +1,21 @@
+const express = require('express');
+const cors = require('cors');
+const {mongoose} = require('./database');
+let app = express();
+
+// middlewares
+app.use(express.json());
+app.use(cors({origin: 'http://localhost:4200'}));
+
+// routes module
+app.use('/api/v1/products', require('./routes/product.route'));
+
+// setting
+app.set('port', process.env.PORT || 3000);
+
+// starting the server
+app.listen(app.get('port'), () => {
+    console.log(`Server started on port`, app.get('port'));
+});
+
+
