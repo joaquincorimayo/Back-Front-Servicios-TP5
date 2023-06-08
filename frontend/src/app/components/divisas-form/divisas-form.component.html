@@ -1,0 +1,36 @@
+<div class="col-md-3 col-12 p-5 bg-secondary">
+  <!--    INGRESAR CANTIDAD-->
+  <div>
+    <label for="input-cantidad" class="form-label text-light">Cantidad</label>
+    <input type="number" class="form-control text-end" id="input-cantidad" placeholder="Ingresar cantidad"
+           [(ngModel)]="convert.cantidad">
+  </div>
+
+  <!--    SELECCIONAR DESDE- -->
+  <div>
+    <label class="form-label text-light">De</label>
+    <select class="form-select form-select-sm text-center" aria-label=".form-select-sm example"
+            [(ngModel)]="convert.desde">
+      <option *ngFor="let codigoDesde of listCurrency" [value]="codigoDesde">{{codigoDesde}}</option>
+    </select>
+  </div>
+
+  <!--    SELECCIONAR A- -->
+  <div>
+    <label class="form-label text-light">A</label>
+    <select class="form-select form-select-sm text-center mb-2" aria-label=".form-select-sm example"
+            [(ngModel)]="convert.hasta"
+    >
+      <option *ngFor="let codigoHasta of listCurrency" [value]="codigoHasta">{{codigoHasta}}</option>
+    </select>
+    <div class="input-group mb-2" *ngIf="convert.resultado!=null">
+      <div disabled class="form-control text-end">{{convert.resultado}}</div>
+    </div>
+  </div>
+
+  <!--    BOTON PARA CONVERTIR-->
+  <div class="d-grid gap-2">
+    <button class="btn btn-warning" type="button" (click)="getConversion()">Convertir</button>
+  </div>
+
+</div>
