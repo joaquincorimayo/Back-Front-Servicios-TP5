@@ -8,13 +8,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { DivisasFormComponent } from './components/divisas-form/divisas-form.component';
+import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductSliderComponent,
     ProductFormComponent,
-    DivisasFormComponent
+    DivisasFormComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,

@@ -49,4 +49,20 @@ export class TransactionService {
     return this.http.post(URL, body, HTTP_OPTIONS);
   }
 
+  getTransactions(): Observable<any> {
+    const URL = 'http://localhost:3000/api/v1/transactions/';
+    const HTTP_OPTIONS = {
+      headers: new HttpHeaders({}), params: new HttpParams()
+    };
+    return this.http.get(URL, HTTP_OPTIONS);
+  }
+
+  getTransactionsByMoneda(moneda: string): Observable<any> {
+    const URL = 'http://localhost:3000/api/v1/transactions/monedas/' + moneda;
+    const HTTP_OPTIONS = {
+      headers: new HttpHeaders({}), params: new HttpParams()
+    };
+    return this.http.get(URL, HTTP_OPTIONS);
+  }
+
 }
