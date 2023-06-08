@@ -4,5 +4,5 @@ export class Product {
   image!:string;
   price!:number;
   stock!:number;
-  dest!:boolean;
+  dest:boolean = false;
 }

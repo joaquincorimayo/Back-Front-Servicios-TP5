@@ -1,0 +1,59 @@
+<h1 class="display-4">Alta de Producto</h1>
+
+<form [formGroup]="myForm" class="p-1 m-2">
+  <div class="form-group">
+    <label for="name" class="fw-bolder">Nombre del Producto</label>
+    <input type="text" class="form-control" id="name" name="name" formControlName="name" autocomplete="off"
+           placeholder="Ingresar nombre del producto" [(ngModel)]="product.name" required>
+    <div
+      *ngIf="myForm.controls['name'].errors && (myForm.controls['name'].dirty || myForm.controls['name'].touched)"
+      class="alert alert-danger text-center">
+      <div *ngIf="myForm.controls['name'].errors['required']">El nombre es obligatorio.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="desc" class="fw-bolder">Descripcion del Producto</label>
+    <input type="text" class="form-control" id="desc" name="desc" formControlName="desc" autocomplete="off"
+           placeholder="Ingresar descripcion del producto" [(ngModel)]="product.description" required>
+    <div
+      *ngIf="myForm.controls['desc'].errors && (myForm.controls['desc'].dirty || myForm.controls['desc'].touched)"
+      class="alert alert-danger text-center">
+      <div *ngIf="myForm.controls['desc'].errors['required']">El producto necesita tener una descripcion.</div>
+      <div *ngIf="myForm.controls['desc'].errors['minlength']">La descripcion necesita ser mas detallada.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="pre" class="fw-bolder">Precio del Producto</label>
+    <input type="number" class="form-control" id="pre" name="pre" formControlName="pre" autocomplete="off"
+           placeholder="Ingresar el precio del producto" [(ngModel)]="product.price" required>
+    <div
+      *ngIf="myForm.controls['pre'].errors && (myForm.controls['pre'].dirty || myForm.controls['pre'].touched)"
+      class="alert alert-danger text-center">
+      <div *ngIf="myForm.controls['pre'].errors['required']">El producto necesita tener un precio.</div>
+      <div *ngIf="myForm.controls['pre'].errors['min']">El precio debe ser mayor a 0.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="stock" class="fw-bolder">Stock del Producto</label>
+    <input type="number" class="form-control" id="stock" name="stock" formControlName="stock" autocomplete="off"
+           placeholder="Ingresar el stock del producto" [(ngModel)]="product.stock" required>
+
+    <div
+      *ngIf="myForm.controls['stock'].errors && (myForm.controls['stock'].dirty || myForm.controls['stock'].touched)"
+      class="alert alert-danger text-center">
+      <div *ngIf="myForm.controls['stock'].errors['required']">Debe especificar el stock del producto.</div>
+      <div *ngIf="myForm.controls['stock'].errors['min']">El stock debe ser mayor a 0.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="dest" class="form-check-label pe-2 fw-bolder">Producto Destacado</label>
+    <input type="checkbox" class="form-check-input" id="dest" name="dest" formControlName="dest" value="true"
+           [(ngModel)]="product.dest">
+  </div>
+
+  <button [disabled]="myForm.invalid" type="button" class="btn btn-primary" (click)="altaProduct()">Enviar</button>
+</form>
