@@ -38,6 +38,7 @@ export class TicketFormComponent implements OnInit {
         alert(err.msg);
       }
     });
+    this.router.navigate(['tickets']);
   }
 
   ngOnInit(): void {
@@ -47,6 +48,6 @@ export class TicketFormComponent implements OnInit {
   }
 
   returnHome() {
-    this.router.navigate(['home']);
+    this.router.navigate(['tickets']);
   }
 }

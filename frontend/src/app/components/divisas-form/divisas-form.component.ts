@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TransactionService} from "../../services/transaction.service";
 import {Convert} from "../../models/convert";
 import {Transaction} from "../../models/transaction";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-divisas-form',
@@ -12,7 +13,7 @@ export class DivisasFormComponent implements OnInit {
   listCurrency !: Array<any>;
   convert !: Convert;
 
-  constructor(private transactionService: TransactionService) {
+  constructor(private transactionService: TransactionService, private router: Router) {
   }
 
   getConversion() {
@@ -30,14 +31,14 @@ export class DivisasFormComponent implements OnInit {
           next: resultSave => {
             alert(resultSave.msg);
           }, error: errorSave => {
-            alert(errorSave.msg);
+            console.log(errorSave);
           }
-        })
-
+        });
       }, error: err => {
-        console.log(err);
+        console.log(err.error.message);
       }
     });
+    this.router.navigate(['/transactions']);
   }
 
   getListCurrency() {

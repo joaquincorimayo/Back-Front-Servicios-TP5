@@ -1,4 +1,5 @@
-<h1 class="display-4">Lista de tickets Vendidos!</h1>
+<h1 class="display-4 m-2 text-center">Lista de tickets Vendidos!</h1>
+<button type="button" class="btn btn-danger m-5" [routerLink]="['/new-ticket']">Dar de alta un ticket</button>
 
 <div class="form-group">
   <label for="filter">FILTRO POR CATEGORIA DE ESPECTADORES</label>
@@ -36,8 +37,8 @@
     <td>{{t.espectador.dni}}</td>
     <td>{{t.espectador.email}}</td>
     <td>
-      <button class="btn btn-danger m-2" (click)="deleteTicket(t._id)">Eliminar</button>
-      <button class="btn btn-success" (click)="editTicket(t)">Actualizar</button>
+      <button class="btn btn-danger m-2" (click)="deleteTicket(t._id)">Eliminar ticket</button>
+      <button class="btn btn-success" (click)="editTicket(t)">Modificar ticket</button>
     </td>
   </tr>
   </tbody>

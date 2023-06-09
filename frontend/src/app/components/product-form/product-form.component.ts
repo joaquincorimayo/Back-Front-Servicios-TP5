@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../../models/product";
 import {ProductService} from "../../services/product.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-form',
@@ -12,7 +13,7 @@ export class ProductFormComponent {
   myForm: FormGroup;
   product: Product = new Product();
 
-  constructor(private formBuilder: FormBuilder, private productoService: ProductService) {
+  constructor(private formBuilder: FormBuilder, private productoService: ProductService, private router: Router) {
     this.myForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
       desc: new FormControl('', [Validators.required, Validators.minLength(12)]),
@@ -32,5 +33,9 @@ export class ProductFormComponent {
         alert(err.msg);
       }
     });
+  }
+
+  returnHome() {
+    this.router.navigate(['products']);
   }
 }

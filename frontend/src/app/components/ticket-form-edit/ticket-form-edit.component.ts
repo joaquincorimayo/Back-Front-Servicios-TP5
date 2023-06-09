@@ -52,6 +52,6 @@ export class TicketFormEditComponent implements OnInit {
   }
 
   returnHome() {
-    this.router.navigate(['home']);
+    this.router.navigate(['tickets']);
   }
 }

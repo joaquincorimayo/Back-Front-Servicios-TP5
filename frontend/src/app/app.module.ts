@@ -12,6 +12,9 @@ import { TransactionListComponent } from './components/transaction-list/transact
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
 import { TicketFormComponent } from './components/ticket-form/ticket-form.component';
 import { TicketFormEditComponent } from './components/ticket-form-edit/ticket-form-edit.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { HeaderComponent } from './components/common/header/header.component';
+import { HomeComponent } from './components/common/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { TicketFormEditComponent } from './components/ticket-form-edit/ticket-fo
     TransactionListComponent,
     TicketListComponent,
     TicketFormComponent,
-    TicketFormEditComponent
+    TicketFormEditComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
