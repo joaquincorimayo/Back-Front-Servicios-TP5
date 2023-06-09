@@ -36,7 +36,8 @@
     <td>{{t.espectador.dni}}</td>
     <td>{{t.espectador.email}}</td>
     <td>
-      <button class="btn btn-danger" (click)="deleteTicket(t._id)">Eliminar</button>
+      <button class="btn btn-danger m-2" (click)="deleteTicket(t._id)">Eliminar</button>
+      <button class="btn btn-success" (click)="editTicket(t)">Actualizar</button>
     </td>
   </tr>
   </tbody>

@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {TicketService} from "../../services/ticket.service";
 import {Ticket} from "../../models/ticket";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ticket-list', templateUrl: './ticket-list.component.html', styleUrls: ['./ticket-list.component.css']
@@ -9,7 +10,7 @@ export class TicketListComponent {
   listTickets !: Array<Ticket>;
   espectadorSeleccionado: string = '';
 
-  constructor(private ticketService: TicketService) {
+  constructor(private ticketService: TicketService, private router: Router) {
   }
 
   getAllTickets() {
@@ -55,5 +56,9 @@ export class TicketListComponent {
         alert(err.msg);
       }
     });
+  }
+
+  async editTicket(ticket: Ticket) {
+    await this.router.navigate(['edit'], {state: {t: ticket}});
   }
 }

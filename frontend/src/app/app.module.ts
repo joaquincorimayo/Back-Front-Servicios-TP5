@@ -10,6 +10,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { DivisasFormComponent } from './components/divisas-form/divisas-form.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
+import { TicketFormComponent } from './components/ticket-form/ticket-form.component';
+import { TicketFormEditComponent } from './components/ticket-form-edit/ticket-form-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TicketListComponent } from './components/ticket-list/ticket-list.compon
     ProductFormComponent,
     DivisasFormComponent,
     TransactionListComponent,
-    TicketListComponent
+    TicketListComponent,
+    TicketFormComponent,
+    TicketFormEditComponent
   ],
   imports: [
     BrowserModule,
