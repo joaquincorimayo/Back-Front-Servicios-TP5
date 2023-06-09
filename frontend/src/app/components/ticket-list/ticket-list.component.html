@@ -1,0 +1,46 @@
+<h1 class="display-4 m-2 text-center">Lista de tickets Vendidos!</h1>
+<button type="button" class="btn btn-danger m-5" [routerLink]="['/new-ticket']">Dar de alta un ticket</button>
+
+<div class="form-group">
+  <label for="filter">FILTRO POR CATEGORIA DE ESPECTADORES</label>
+  <input type="text" class="form-control mt-3 mb-3" id="filter"
+         placeholder="Ingresar tipo de espectador E (extranjero) L (local)" autocomplete="off"
+         [(ngModel)]="espectadorSeleccionado">
+  <button type="button" class="btn btn-info me-3" (click)="getEspectadorTickets()"
+          [disabled]="espectadorSeleccionado==''">Filtrar
+  </button>
+  <button type="button" class="btn btn-info" (click)="getAllTickets()">Todos</button>
+</div>
+
+
+<table class="table text-center">
+  <caption></caption>
+  <thead>
+  <tr>
+    <th scope="col">Precio del ticket</th>
+    <th scope="col">Categoria del espectador</th>
+    <th scope="col">Fecha de Compra</th>
+    <th scope="col">Nombre del espectador</th>
+    <th scope="col">Apellido del espectador</th>
+    <th scope="col">DNI del espectador</th>
+    <th scope="col">Email del espectador</th>
+    <th scope="col">Operaciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of listTickets">
+    <td>{{t.precioTicket}}</td>
+    <td>{{t.categoriaEspectador}}</td>
+    <td>{{t.fechaCompra | date: 'dd/MM/yyyy' }}</td>
+    <td>{{t.espectador.name}}</td>
+    <td>{{t.espectador.surname}}</td>
+    <td>{{t.espectador.dni}}</td>
+    <td>{{t.espectador.email}}</td>
+    <td>
+      <button class="btn btn-danger m-2" (click)="deleteTicket(t._id)">Eliminar ticket</button>
+      <button class="btn btn-success" (click)="editTicket(t)">Modificar ticket</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

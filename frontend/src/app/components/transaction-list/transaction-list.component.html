@@ -1,0 +1,34 @@
+<div class="form-group">
+  <label for="filter">FILTRO DE TRANSACCIONES</label>
+  <input type="text" class="form-control mt-3 mb-3" id="filter" placeholder="Ingresar moneda" autocomplete="off"
+         [(ngModel)]="monedaSelected">
+  <button type="button" class="btn btn-info me-3" (click)="getListTransactionsFilterMoneda()"
+          [disabled]="monedaSelected==''">Filtrar
+  </button>
+  <button type="button" class="btn btn-info" (click)="getListTransactions()">Todos</button>
+</div>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#ID</th>
+    <th scope="col">MONEDA ORIGEN</th>
+    <th scope="col">MONEDA DESTINO</th>
+    <th scope="col">ORIGEN</th>
+    <th scope="col">DESTINO</th>
+    <th scope="col">EMAIL</th>
+    <th scope="col">TASA CONVERSION</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of listTransactions">
+    <td>{{t._id}}</td>
+    <td>{{t.monedaOrigen}}</td>
+    <td>{{t.monedaDestino}}</td>
+    <td>{{t.cantidadOrigen}}</td>
+    <td>{{t.cantidadDestino}}</td>
+    <td>{{t.emailCliente}}</td>
+    <td>{{t.tasaConversion}}</td>
+  </tr>
+  </tbody>
+</table>
