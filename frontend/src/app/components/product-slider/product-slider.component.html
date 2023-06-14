@@ -7,7 +7,7 @@
   <!--  SLIDER-CONTENT-->
   <div class="carousel-inner">
     <div class="carousel-item" *ngFor="let p of productList;let isFirst = first" [ngClass]="{active:isFirst}">
-      <img [src]="'assets/images/'+p.image" class=" " [alt]="p.name">
+      <img [src]="p.image" class=" " [alt]="p.name">
       <div class="carousel-caption d-none d-md-block text-black fw-bolder">
         <h5 class="card-header">{{p.name}}</h5>
         <p class="card-body">{{p.description}}</p>

@@ -7,9 +7,6 @@ let app = express();
 app.use(express.json());
 app.use(cors({origin: 'http://localhost:4200'}));
 
-// settings for files statics "public"
-app.use(express.static('public'));
-
 // routes module
 app.use('/api/v1/products', require('./routes/product.route'));
 app.use('/api/v1/transactions', require('./routes/transaction.route'));
